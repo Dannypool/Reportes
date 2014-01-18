@@ -1,0 +1,267 @@
+* {
+    margin : 0;
+    padding : 0;
+    border: 0;
+}
+
+body {
+    font: 76% "Century Gothic", verdana, sans-serif;
+    line-height: 2em;
+    color: #333;
+    background: #BFE3FE;
+}
+
+h1,h2,h3 {font-weight: lighter;letter-spacing: 5px;}
+h1 {font-size: 2.5em; color: #fff;padding: 1em;}
+h2 {font-size: 1.8em; color: #95A775;padding: 0.8em 0;}
+h3 {font-size: 1.3em; color: #95A775;padding: 0.5em 0;font-variant: small-caps;}
+
+p {padding: 5px;}
+blockquote {background: #FEFDF6; margin :0 20px;padding : 5px; color: #666;}
+em {color: #aaa;font-style: italic;}
+
+.big {letter-spacing: 2px;font-size: 150%;font-weight: bold;color: #99C647;padding: 0.5em;}
+.clear {clear:both; height:1px; width:1px; line-height:0em; overflow:hidden;}
+
+/* links */
+a, a:visited {text-decoration: none;color: #3898B7;background: inherit;}
+a:hover {text-decoration: underline;color: #305F00;background: inherit;}
+
+/*  listas */
+ul {margin-bottom: 10px;}
+ul li {margin: 0 0 0 20px;list-style: disc;color : #318C00;}
+
+/*  imágenes */
+img {border: 0;}
+
+/* cabecera */
+#cuerpo {
+    width: 760px;
+    margin: 0 auto;
+    padding: 10px;
+    background: #fff;
+}
+#banner {
+    padding: 10px;
+    margin-bottom: 0;
+    height: 200px;
+    background: #0066B3 url(images/banner.jpg);
+}
+
+/* menú principal */
+/* linea del menú */
+#menu ul {
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    font-size: 130%;
+    text-align: center;
+    border-top: 3px solid #95A775;
+    border-bottom: 3px solid #95A775;
+    background: #385900;
+    color: #000;
+}
+
+/* Botón del menú */
+#menu a {
+    float: left;
+    width: 6em;
+    height: 30px;
+    text-decoration: none;
+    padding: 0.5em 0.6em;
+    border-right: 1px solid #95A775;
+    background: #385900;
+    color: #fff;
+}
+
+/* Acción del botón el cursor arriba */
+#menu a:hover {
+    background:#8BBA00;
+    color: #000;
+}
+
+#menu li {
+    display:inline;
+}
+
+/* contenido */
+#contenido {
+    padding: 10px;
+    margin-left: 200px;
+}
+
+#menu_lateral {
+    float: left;
+    width: 180px;
+    margin: 0;
+    padding: 10px;
+}
+
+/* pie de página */
+#pie {
+    clear: both;
+    padding: 5px;
+    margin-top: 20px;
+    border-top: 2px solid #8BBA00;
+    font-size: 0.8em;
+    background: #385900;
+    color: #999;
+}
+
+#pie a, #pie a:visited {text-decoration: none;color: #95A775;background: inherit;}
+
+#pie a:hover {text-decoration: underline;color: #eee;background: inherit;}
+
+/* estilo para primefaces */
+
+/* Menú animado lateral */
+#navigationMenu li{
+	list-style:none;
+	height:39px;
+	padding:2px;
+	width:40px;
+}
+
+#navigationMenu span{
+	/* Container properties */
+	width:0;
+	left:38px;
+	padding:0;
+	position:absolute;
+	overflow:hidden;
+
+	/* Text properties */
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:0.6px;
+	white-space:nowrap;
+	line-height:39px;
+	
+	/* CSS3 Transition: */
+	-webkit-transition: 0.25s;
+	
+	/* Future proofing (these do not work yet): */
+	-moz-transition: 0.25s;
+	transition: 0.25s;
+}
+
+#navigationMenu a{
+	background:url('img/navigation.jpg') no-repeat;
+
+	height:39px;
+	width:38px;
+	display:block;
+	position:relative;
+}
+
+/* General hover styles */
+
+#navigationMenu a:hover span{ width:auto; padding:0 20px;overflow:visible; }
+#navigationMenu a:hover{
+	text-decoration:none;
+	
+	/* CSS outer glow with the box-shadow property */
+	-moz-box-shadow:0 0 5px #9ddff5;
+	-webkit-box-shadow:0 0 5px #9ddff5;
+	box-shadow:0 0 5px #9ddff5;
+}
+
+/* Green Button */
+
+#navigationMenu .home {	background-position:0 0;}
+#navigationMenu .home:hover {	background-position:0 -39px;}
+#navigationMenu .home span{
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+}
+
+/* Blue Button */
+
+#navigationMenu .about { background-position:-38px 0;}
+#navigationMenu .about:hover { background-position:-38px -39px;}
+#navigationMenu .about span{
+	background-color:#1e8bb4;
+	color:#223a44;
+	text-shadow:1px 1px 0 #44a8d0;
+}
+
+/* Orange Button */
+
+#navigationMenu .services { background-position:-76px 0;}
+#navigationMenu .services:hover { background-position:-76px -39px;}
+#navigationMenu .services span{
+	background-color:#c86c1f;
+	color:#5a3517;
+	text-shadow:1px 1px 0 #d28344;
+}
+
+/* Yellow Button */
+
+#navigationMenu .portfolio { background-position:-114px 0;}
+#navigationMenu .portfolio:hover{ background-position:-114px -39px;}
+#navigationMenu .portfolio span{
+	background-color:#d0a525;
+	color:#604e18;
+	text-shadow:1px 1px 0 #d8b54b;
+}
+
+/* Purple Button */
+
+#navigationMenu .contact { background-position:-152px 0;}
+#navigationMenu .contact:hover { background-position:-152px -39px;}
+#navigationMenu .contact span{
+	background-color:#af1e83;
+	color:#460f35;
+	text-shadow:1px 1px 0 #d244a6;
+}
+
+/* The styles below are only needed for the demo page */
+
+#main{
+	margin:80px auto;
+	position:relative;
+	width:40px;
+}
+
+
+h1{
+	color:#fff;
+	font-size:30px;
+	font-weight:normal;
+	padding:60px 0 20px;
+	text-align:center;
+}
+
+h2{
+	font-weight:normal;
+	text-align:center;
+}
+
+h1,h2{
+	font-family:"Myriad Pro",Arial,Helvetica,sans-serif;
+}
+
+a, a:visited,a:active {
+	color:#0196e3;
+	text-decoration:none;
+	outline:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+a img{
+	border:none;
+}
+
+p.note{
+	color:#707070;
+	font-size:10px;
+	text-align:center;
+	margin:50px;
+}

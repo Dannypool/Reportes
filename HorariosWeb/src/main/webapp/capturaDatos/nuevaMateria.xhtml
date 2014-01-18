@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:panel header="Nueva Materia">
+				<h:panelGrid columns="3" id="panelPrincipal">
+					<h:outputText value="Nombre"/>
+					<p:inputText id="inputNombre" binding="#{nuevaMateria.htmlNombre}"/>
+					<p:message for="inputNombre"/>
+					<h:outputText value="Profesor"/>
+					<p:inputText id="inputProfesor" binding="#{nuevaMateria.htmlMateria}"/>
+					<p:message for="inputProfesor"/>
+					<h:outputText value="Día"/>
+					<p:inputText id="inputDia"/>
+					<p:message for="inputDia"/>
+					<h:outputText value="Hora Inicio"/>
+					<p:inputText id="inputHoraInicio"/>
+					<p:message for="inputHoraInicio"/>
+					<h:outputText value="Hora Fin"/>
+					<p:inputText id="inputHoraFin"/>
+					<p:message for="inputHoraFin"/>
+				
+				</h:panelGrid>
+				<p:commandButton value="Agregar" action="#{nuevaMateria.irMenu}"/>
+				<p:commandButton value="Mesanje de Exito" action="#{nuevaMateria.mensajeExito}" update="panelPrincipal"/>
+				<p:commandButton value="Mensaje de Error" action="#{nuevaMateria.mensajeError}" update="panelPrincipal"/>
+				
+		    </p:panel>
+		
+		</h:form>
+			
+		
+	</h:body>	
+
+
+</html>

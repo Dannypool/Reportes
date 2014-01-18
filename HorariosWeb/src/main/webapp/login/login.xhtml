@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:panel header="Bienvenido" style="height:250px; width:350px; margin-left: 35%;">
+				<h:panelGrid columns="2">  
+
+			        <h:outputText value="Usuario: " />
+			        <h:inputText value="#{login.usuario}" id="inputUsuario"/>
+			        <h:outputText/>
+			        <p:message for="inputUsuario" /> 
+			        <h:outputText value="Contraseña: " />  
+	            	<p:password id="idContraseña" value="#{login.pass}" />
+	            	<h:outputText/>
+			        <p:message for="idContraseña" />     
+			  
+		    	</h:panelGrid>
+		    	<p:commandButton value="Acceder" id="ajax" actionListener="#{login.acceder}" /> 
+		    </p:panel>
+		
+		</h:form>
+			
+		
+	</h:body>	
+
+
+</html>

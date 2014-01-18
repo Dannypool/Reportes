@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui">
+	<h:head>
+		
+	</h:head>
+	
+	<h:body>
+		<h:form>
+			<p:panel header="Mi Horario para Hoy">
+			
+				<p:ring value="#{menu.listaAnillo}" var="anillo" easing="easeInOutBack" >
+					 <p:outputPanel style="text-align:center;" layout="block">
+					 	#{anillo.descripcion}
+					 </p:outputPanel>
+				</p:ring>
+				<p:dataTable id="idTablaHorarios" var="horario" value="#{menu.listaHorario}"
+						>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="No."/>
+						</f:facet>
+						
+						<h:outputText value="#{horario.num}"/>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="Clase"/>
+						</f:facet>
+						<h:outputText value="#{horario.clase}"/>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="tarea"/>
+						</f:facet>
+						<h:outputText value="#{horario.tarea}"/>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="material"/>
+						</f:facet>
+						<h:outputText value="#{horario.material}"/>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="fecha"/>
+						</f:facet>
+						<h:outputText value="#{horario.fecha}"/>
+					</p:column>
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="List"/>
+						</f:facet>
+						<p:commandLink value="listo"/>
+					</p:column>
+				
+				</p:dataTable> 
+				
+				<p:commandButton value="Nueva Materia" action="#{menu.irNuevamatria}" update="panleExito"/>
+				
+				<h:panelGrid id="panleExito">
+					<h:outputText value="#{menu.exito}"/>
+				</h:panelGrid>
+				
+		    </p:panel>
+		
+		</h:form>
+			
+		
+	</h:body>	
+
+
+</html>

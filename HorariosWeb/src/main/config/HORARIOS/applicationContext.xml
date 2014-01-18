@@ -1,0 +1,84 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Beans Declaration -->
+	<bean id="juegos" class="mx.com.ragna.dto.ent.JuegosEnt"/>
+
+	<!-- Aqui van todos los servicios -->
+	<bean id="juegosService" class="mx.com.ragna.service.impl.JuegosServiceimpl">
+		<property name="juegosDao" ref="juegosDao" />
+	</bean>
+	<bean id="usuarioService" class="mx.com.ragna.service.impl.UsuarioServiceImpl">
+		<property name="usuarioDao" ref="usuarioDao" />
+	</bean>
+	<!-- Aqui terminan todos los servicios -->
+
+	<!-- Aqui van todos los Dao's -->
+	<bean id="juegosDao" class="mx.com.ragna.dao.impl.JuegosDaoImpl">
+		<property name="sessionFactory" ref="SessionFactory" />
+	</bean>
+	
+	<bean id="usuarioDao" class="mx.com.ragna.dao.impl.UsuarioDaoImpl">
+		<property name="sessionFactory" ref="SessionFactory" />
+	</bean>
+	
+	<!-- Aqui terminan todos los Dao's -->
+
+ <!-- Data Source Declaration -->
+	<bean id="DataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		
+            <property name="driverClass" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
+            <property name="jdbcUrl" value="jdbc:sqlserver://200.67.149.236:1433" />
+            <property name="user" value="sa" />
+            <property name="password" value="C0r10ll15" />
+		<!-- 
+                <property name="driverClass" value="org.postgresql.Driver" />
+		<property name="jdbcUrl" value="jdbc:postgresql://ec2-107-20-147-106.compute-1.amazonaws.com:5432/d722lo5c52gkc4" />
+		<property name="user" value="phlsgnyzsuujon" />
+		<property name="password" value="peHSmrf_Rollk2OUfinA2q5vt7" />
+		
+                 <property name="jdbcUrl" value="jdbc:postgresql://localhost:5432/desarrollo" />
+		<property name="user" value="postgres" />
+		<property name="password" value="desarrollo" /> 
+                
+                -->
+		
+		<property name="maxPoolSize" value="1" />
+		<property name="maxStatements" value="0" />
+		<property name="minPoolSize" value="1" />
+	</bean>
+
+ <!-- Session Factory Declaration -->
+	<bean id="SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+ 		<property name="dataSource" ref="DataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>mx.com.ragna.dto.ent.JuegosEnt</value>
+				<value>mx.com.ragna.dto.ent.UsuarioEnt</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+	</bean>
+
+ <!-- Enable the configuration of transactional behavior based on annotations -->
+    <tx:annotation-driven transaction-manager="txManager"/>
+
+ <!-- Transaction Manager is defined -->
+    <bean id="txManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+       <property name="sessionFactory" ref="SessionFactory"/>
+    </bean>
+
+</beans>
